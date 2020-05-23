@@ -31,22 +31,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.deskSize = new System.Windows.Forms.GroupBox();
-            this.deskWidth = new System.Windows.Forms.Label();
-            this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownDepth = new System.Windows.Forms.NumericUpDown();
             this.deskDepth = new System.Windows.Forms.Label();
+            this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
+            this.deskWidth = new System.Windows.Forms.Label();
             this.numOfDrawers = new System.Windows.Forms.Label();
             this.numericUpDownDrawers = new System.Windows.Forms.NumericUpDown();
             this.surfaceMaterialLabel = new System.Windows.Forms.Label();
-            this.materialListLabel = new System.Windows.Forms.ComboBox();
+            this.materialListDrop = new System.Windows.Forms.ComboBox();
             this.deliveryListLabel = new System.Windows.Forms.ComboBox();
             this.deliveryLabel = new System.Windows.Forms.Label();
             this.getQuoteButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.customerNameTextBox = new System.Windows.Forms.TextBox();
             this.deskSize.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrawers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,55 +79,19 @@
             this.deskSize.Controls.Add(this.numericUpDownWidth);
             this.deskSize.Controls.Add(this.deskWidth);
             this.deskSize.Location = new System.Drawing.Point(55, 156);
-            this.deskSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deskSize.Margin = new System.Windows.Forms.Padding(4);
             this.deskSize.Name = "deskSize";
-            this.deskSize.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deskSize.Padding = new System.Windows.Forms.Padding(4);
             this.deskSize.Size = new System.Drawing.Size(297, 123);
             this.deskSize.TabIndex = 3;
             this.deskSize.TabStop = false;
             this.deskSize.Text = "Desk Size";
             // 
-            // deskWidth
-            // 
-            this.deskWidth.AutoSize = true;
-            this.deskWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskWidth.Location = new System.Drawing.Point(35, 32);
-            this.deskWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.deskWidth.Name = "deskWidth";
-            this.deskWidth.Size = new System.Drawing.Size(54, 20);
-            this.deskWidth.TabIndex = 0;
-            this.deskWidth.Text = "Width:";
-            // 
-            // numericUpDownWidth
-            // 
-            this.numericUpDownWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownWidth.Location = new System.Drawing.Point(115, 28);
-            this.numericUpDownWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericUpDownWidth.Maximum = new decimal(new int[] {
-            96,
-            0,
-            0,
-            0});
-            this.numericUpDownWidth.Minimum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.numericUpDownWidth.Name = "numericUpDownWidth";
-            this.numericUpDownWidth.Size = new System.Drawing.Size(148, 23);
-            this.numericUpDownWidth.TabIndex = 1;
-            this.numericUpDownWidth.Value = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.numericUpDownWidth.Validating += new System.ComponentModel.CancelEventHandler(this.numericUpDownWidth_Validating);
-            // 
             // numericUpDownDepth
             // 
             this.numericUpDownDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDepth.Location = new System.Drawing.Point(115, 73);
-            this.numericUpDownDepth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownDepth.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownDepth.Maximum = new decimal(new int[] {
             48,
             0,
@@ -158,6 +122,42 @@
             this.deskDepth.TabIndex = 2;
             this.deskDepth.Text = "Depth:";
             // 
+            // numericUpDownWidth
+            // 
+            this.numericUpDownWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownWidth.Location = new System.Drawing.Point(115, 28);
+            this.numericUpDownWidth.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownWidth.Maximum = new decimal(new int[] {
+            96,
+            0,
+            0,
+            0});
+            this.numericUpDownWidth.Minimum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDownWidth.Name = "numericUpDownWidth";
+            this.numericUpDownWidth.Size = new System.Drawing.Size(148, 23);
+            this.numericUpDownWidth.TabIndex = 1;
+            this.numericUpDownWidth.Value = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDownWidth.Validating += new System.ComponentModel.CancelEventHandler(this.numericUpDownWidth_Validating);
+            // 
+            // deskWidth
+            // 
+            this.deskWidth.AutoSize = true;
+            this.deskWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskWidth.Location = new System.Drawing.Point(35, 32);
+            this.deskWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.deskWidth.Name = "deskWidth";
+            this.deskWidth.Size = new System.Drawing.Size(54, 20);
+            this.deskWidth.TabIndex = 0;
+            this.deskWidth.Text = "Width:";
+            // 
             // numOfDrawers
             // 
             this.numOfDrawers.AutoSize = true;
@@ -172,7 +172,7 @@
             // numericUpDownDrawers
             // 
             this.numericUpDownDrawers.Location = new System.Drawing.Point(543, 154);
-            this.numericUpDownDrawers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownDrawers.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownDrawers.Maximum = new decimal(new int[] {
             7,
             0,
@@ -203,20 +203,20 @@
             this.surfaceMaterialLabel.TabIndex = 6;
             this.surfaceMaterialLabel.Text = "Surface Material:";
             // 
-            // materialListLabel
+            // materialListDrop
             // 
-            this.materialListLabel.FormattingEnabled = true;
-            this.materialListLabel.Location = new System.Drawing.Point(542, 188);
-            this.materialListLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.materialListLabel.Name = "materialListLabel";
-            this.materialListLabel.Size = new System.Drawing.Size(195, 24);
-            this.materialListLabel.TabIndex = 7;
+            this.materialListDrop.FormattingEnabled = true;
+            this.materialListDrop.Location = new System.Drawing.Point(542, 188);
+            this.materialListDrop.Margin = new System.Windows.Forms.Padding(4);
+            this.materialListDrop.Name = "materialListDrop";
+            this.materialListDrop.Size = new System.Drawing.Size(195, 24);
+            this.materialListDrop.TabIndex = 7;
             // 
             // deliveryListLabel
             // 
             this.deliveryListLabel.FormattingEnabled = true;
             this.deliveryListLabel.Location = new System.Drawing.Point(542, 232);
-            this.deliveryListLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deliveryListLabel.Margin = new System.Windows.Forms.Padding(4);
             this.deliveryListLabel.Name = "deliveryListLabel";
             this.deliveryListLabel.Size = new System.Drawing.Size(195, 24);
             this.deliveryListLabel.TabIndex = 9;
@@ -237,7 +237,7 @@
             this.getQuoteButton.BackColor = System.Drawing.SystemColors.Control;
             this.getQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getQuoteButton.Location = new System.Drawing.Point(222, 333);
-            this.getQuoteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.getQuoteButton.Margin = new System.Windows.Forms.Padding(4);
             this.getQuoteButton.Name = "getQuoteButton";
             this.getQuoteButton.Size = new System.Drawing.Size(188, 42);
             this.getQuoteButton.TabIndex = 10;
@@ -250,7 +250,7 @@
             this.cancelButton.BackColor = System.Drawing.SystemColors.Control;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(418, 333);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(188, 42);
             this.cancelButton.TabIndex = 11;
@@ -276,7 +276,7 @@
             this.Controls.Add(this.getQuoteButton);
             this.Controls.Add(this.deliveryListLabel);
             this.Controls.Add(this.deliveryLabel);
-            this.Controls.Add(this.materialListLabel);
+            this.Controls.Add(this.materialListDrop);
             this.Controls.Add(this.surfaceMaterialLabel);
             this.Controls.Add(this.numericUpDownDrawers);
             this.Controls.Add(this.numOfDrawers);
@@ -284,15 +284,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddQuote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
+            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.deskSize.ResumeLayout(false);
             this.deskSize.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrawers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,7 +312,7 @@
         private System.Windows.Forms.Label numOfDrawers;
         private System.Windows.Forms.NumericUpDown numericUpDownDrawers;
         private System.Windows.Forms.Label surfaceMaterialLabel;
-        private System.Windows.Forms.ComboBox materialListLabel;
+        private System.Windows.Forms.ComboBox materialListDrop;
         private System.Windows.Forms.ComboBox deliveryListLabel;
         private System.Windows.Forms.Label deliveryLabel;
         private System.Windows.Forms.Button getQuoteButton;

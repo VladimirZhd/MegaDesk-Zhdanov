@@ -1,9 +1,11 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,10 +39,57 @@ namespace MegaDesk_Zhdanov
 
         private void getQuoteButton_Click(object sender, EventArgs e)
         {
-            var frmDisplayQuote = new DisplayQuote(_mainMenu);
-            frmDisplayQuote.Show();
+            var desk = new Desk
+            {
+                Depth = numericUpDownDepth.Value,
+                Width = numericUpDownWidth.Value,
+                NumberOfDrawers = (int)numericUpDownDrawers.Value,
+                Material = (DesktopMaterial)materialListDrop.SelectedValue
+            };
 
-            Hide();
+            var deskQuote = new DeskQuote
+            {
+                Desk = desk,
+                CustomerName = customerNameTextBox.Text,
+                QuoteDate = DateTime.Now,
+                DeliveryType = (Delivery)deliveryListLabel.SelectedValue
+            };
+
+            try
+            {
+                var price = deskQuote.GetQuotePrice();
+
+                deskQuote.QuotePrice = price;
+
+
+                DisplayQuote displayQuoteForm = new DisplayQuote(_mainMenu, deskQuote);
+                displayQuoteForm.Show();
+                Hide();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void SaveQuote(List<DeskQuote> quotes)
+        {
+            var quotesFile = @"qoute.json";
+
+            
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
+            Array materialValues = Enum.GetValues(typeof(DesktopMaterial));
+            Array materialNames = Enum.GetNames(typeof(DesktopMaterial));
+
+            for (int i = 0; i < materialNames.Length; i++)
+            {
+
+            }
         }
     }
 }

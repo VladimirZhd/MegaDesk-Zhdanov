@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MegaDesk_Zhdanov
 {
 
-    public enum DesktopMatirial
+    public enum DesktopMaterial
     {
         Laminate,
         Oak,
@@ -29,8 +29,9 @@ namespace MegaDesk_Zhdanov
 
         public decimal Depth { get; set; }
 
-        public int NumberOfGrawers { get; set; }
+        public int NumberOfDrawers { get; set; }
 
+        public DesktopMaterial Material { get; set; }
 
     }
 }

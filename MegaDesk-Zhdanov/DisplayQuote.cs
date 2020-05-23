@@ -13,7 +13,8 @@ namespace MegaDesk_Zhdanov
     public partial class DisplayQuote : Form
     {
         private Form _mainMenu;
-        public DisplayQuote(Form mainMenu)
+        private DeskQuote _quote; 
+        public DisplayQuote(Form mainMenu, DeskQuote deskQuote)
         {
             InitializeComponent();
             _mainMenu = mainMenu;
