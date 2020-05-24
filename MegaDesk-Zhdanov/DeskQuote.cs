@@ -24,7 +24,7 @@ namespace MegaDesk_Zhdanov
         Normal14Days
     }
 
-    class DeskQuote
+    public class DeskQuote
     {
 
         private int[,] _rushOrderPrices;
@@ -40,13 +40,9 @@ namespace MegaDesk_Zhdanov
 
 
         public Desk Desk { get; set; }
-
         public string CustomerName { get; set; }
-
         public DateTime QuoteDate { get; set; }
-
         public Delivery DeliveryType { get; set; }
-
         public decimal QuotePrice { get; set; }
 
         public decimal GetQuotePrice()
@@ -58,6 +54,10 @@ namespace MegaDesk_Zhdanov
             decimal surfaceArea = this.Desk.Depth * this.Desk.Width;
 
             decimal surfacePrice = 0.00M;
+            if (surfaceArea > 1000)
+            {
+                surfacePrice += surfaceArea
+            }
 
             
 

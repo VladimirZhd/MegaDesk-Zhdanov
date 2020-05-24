@@ -13,16 +13,30 @@ namespace MegaDesk_Zhdanov
     public partial class DisplayQuote : Form
     {
         private Form _mainMenu;
-        private DeskQuote _quote; 
-        public DisplayQuote(Form mainMenu, DeskQuote deskQuote)
+        private DeskQuote _quote;
+
+
+        public DisplayQuote()
         {
             InitializeComponent();
-            _mainMenu = mainMenu;
+ 
         }
+        public DisplayQuote(DeskQuote deskQuote) : this()
+        {
+            _quote = deskQuote;
+        }
+
 
         private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
         {
             _mainMenu.Show();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
         }
     }
 }

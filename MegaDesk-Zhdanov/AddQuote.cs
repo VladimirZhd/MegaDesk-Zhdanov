@@ -19,6 +19,20 @@ namespace MegaDesk_Zhdanov
         {
             InitializeComponent();
             _mainMenu = mainMenu;
+            materialListDrop.DataSource = Enum.GetValues(typeof(DesktopMaterial));
+            
+            deliveryListDrop.ValueMember = "Value";
+            deliveryListDrop.DisplayMember = "Description";
+            deliveryListDrop.DataSource = Enum.GetValues(typeof(Delivery))
+                .Cast<Enum>()
+                .Select(value => new
+                {
+                    (Attribute.GetCustomAttribute(value.GetType().GetField(value.ToString()), 
+                    typeof(DescriptionAttribute)) as DescriptionAttribute).Description,
+                    value
+                })
+                .OrderBy(item => item.value)
+                .ToList();    
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -52,7 +66,7 @@ namespace MegaDesk_Zhdanov
                 Desk = desk,
                 CustomerName = customerNameTextBox.Text,
                 QuoteDate = DateTime.Now,
-                DeliveryType = (Delivery)deliveryListLabel.SelectedValue
+                DeliveryType = (Delivery)deliveryListDrop.SelectedValue
             };
 
             try
@@ -62,7 +76,7 @@ namespace MegaDesk_Zhdanov
                 deskQuote.QuotePrice = price;
 
 
-                DisplayQuote displayQuoteForm = new DisplayQuote(_mainMenu, deskQuote);
+                DisplayQuote displayQuoteForm = new DisplayQuote(deskQuote);
                 displayQuoteForm.Show();
                 Hide();
             }
@@ -76,20 +90,13 @@ namespace MegaDesk_Zhdanov
 
         private void SaveQuote(List<DeskQuote> quotes)
         {
-            var quotesFile = @"qoute.json";
+            var quotesFile = @"quote.json";
 
             
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            Array materialValues = Enum.GetValues(typeof(DesktopMaterial));
-            Array materialNames = Enum.GetNames(typeof(DesktopMaterial));
-
-            for (int i = 0; i < materialNames.Length; i++)
-            {
-
-            }
         }
     }
 }

@@ -71,6 +71,7 @@
             this.cancelButton.TabIndex = 23;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // deskQuoteDeliveryOption
             // 
