@@ -17,7 +17,7 @@ namespace MegaDesk_Zhdanov
             deskQuoteDrawers.Text = deskQuote.Desk.NumberOfDrawers.ToString();
             deskQuoteMaterial.Text = deskQuote.Desk.Material.ToString();
             deskQuoteDelivery.Text = deskQuote.DeliveryType.ToString();
-            priceQuoteTxt.Text = deskQuote.QuotePrice.ToString();
+            priceQuoteTxt.Text = deskQuote.QuotePrice.ToString("C");
         }
 
         private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -32,7 +32,7 @@ namespace MegaDesk_Zhdanov
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             _mainMenu.Show();
         }
     }

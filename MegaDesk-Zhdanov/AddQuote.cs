@@ -60,15 +60,11 @@ namespace MegaDesk_Zhdanov
             try
             {
                 var price = deskQuote.GetQuotePrice();
-
-
                 deskQuote.QuotePrice = price;
-
-                
 
                 DisplayQuote displayQuoteForm = new DisplayQuote(_mainMenu, deskQuote);
                 displayQuoteForm.Show();
-                Hide();
+                Close();
             }
             catch (Exception)
             {
@@ -76,11 +72,13 @@ namespace MegaDesk_Zhdanov
                 throw;
             }
 
+
+
         }
 
         private void SaveQuote(List<DeskQuote> quotes)
         {
-            var quotesFile = @"qoute.json";
+            var quotesFile = @"quotes.json";
 
             
         }
