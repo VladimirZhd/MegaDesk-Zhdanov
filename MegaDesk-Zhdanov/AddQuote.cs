@@ -71,25 +71,7 @@ namespace MegaDesk_Zhdanov
                 DeliveryType = (Delivery)deliveryListDrop.SelectedValue
             };
 
-            List<DeskQuote> deskQuotes = new List<DeskQuote>();
-
-            if (!File.Exists(@"quotes.json"))
-            {
-                deskQuotes.Add(deskQuote);
-                var list = JsonConvert.SerializeObject(deskQuotes);
-                File.WriteAllText(@"quotes.json", JsonConvert.SerializeObject(deskQuotes));
-            }
-            else
-            {
-                using (StreamReader reader = new StreamReader(@"quotes.json"))
-                {
-                    string allQuotes = reader.ReadToEnd();
-                    deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(allQuotes);
-                }
-                deskQuotes.Add(deskQuote);
-                var list = JsonConvert.SerializeObject(deskQuotes);
-                File.WriteAllText(@"quotes.json", list);
-            }
+            
 
 
             try
@@ -98,6 +80,25 @@ namespace MegaDesk_Zhdanov
 
                 deskQuote.QuotePrice = price;
 
+                List<DeskQuote> deskQuotes = new List<DeskQuote>();
+
+                if (!File.Exists(@"quotes.json"))
+                {
+                    deskQuotes.Add(deskQuote);
+                    var list = JsonConvert.SerializeObject(deskQuotes);
+                    File.WriteAllText(@"quotes.json", JsonConvert.SerializeObject(deskQuotes));
+                }
+                else
+                {
+                    using (StreamReader reader = new StreamReader(@"quotes.json"))
+                    {
+                        string allQuotes = reader.ReadToEnd();
+                        deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(allQuotes);
+                    }
+                    deskQuotes.Add(deskQuote);
+                    var list = JsonConvert.SerializeObject(deskQuotes);
+                    File.WriteAllText(@"quotes.json", list);
+                }
 
                 DisplayQuote displayQuoteForm = new DisplayQuote(_mainMenu, deskQuote);
                 displayQuoteForm.Show();

@@ -33,14 +33,14 @@
             this.surfaceMaterialLabel = new System.Windows.Forms.Label();
             this.numOfDrawers = new System.Windows.Forms.Label();
             this.deskSize = new System.Windows.Forms.GroupBox();
+            this.deskQuoteDepth = new System.Windows.Forms.Label();
+            this.deskQuoteWidth = new System.Windows.Forms.Label();
             this.deskDepth = new System.Windows.Forms.Label();
             this.deskWidth = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.priceQuoteTxt = new System.Windows.Forms.Label();
-            this.deskQuoteWidth = new System.Windows.Forms.Label();
-            this.deskQuoteDepth = new System.Windows.Forms.Label();
             this.deskQuoteMaterial = new System.Windows.Forms.Label();
             this.deskQuoteDelivery = new System.Windows.Forms.Label();
             this.deskQuoteDrawers = new System.Windows.Forms.Label();
@@ -110,6 +110,24 @@
             this.deskSize.TabStop = false;
             this.deskSize.Text = "Desk Size";
             // 
+            // deskQuoteDepth
+            // 
+            this.deskQuoteDepth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteDepth.Location = new System.Drawing.Point(115, 76);
+            this.deskQuoteDepth.Name = "deskQuoteDepth";
+            this.deskQuoteDepth.Size = new System.Drawing.Size(148, 24);
+            this.deskQuoteDepth.TabIndex = 5;
+            // 
+            // deskQuoteWidth
+            // 
+            this.deskQuoteWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteWidth.Location = new System.Drawing.Point(115, 29);
+            this.deskQuoteWidth.Name = "deskQuoteWidth";
+            this.deskQuoteWidth.Size = new System.Drawing.Size(148, 24);
+            this.deskQuoteWidth.TabIndex = 4;
+            // 
             // deskDepth
             // 
             this.deskDepth.AutoSize = true;
@@ -172,24 +190,6 @@
             this.priceQuoteTxt.Name = "priceQuoteTxt";
             this.priceQuoteTxt.Size = new System.Drawing.Size(188, 23);
             this.priceQuoteTxt.TabIndex = 0;
-            // 
-            // deskQuoteWidth
-            // 
-            this.deskQuoteWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.deskQuoteWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskQuoteWidth.Location = new System.Drawing.Point(115, 29);
-            this.deskQuoteWidth.Name = "deskQuoteWidth";
-            this.deskQuoteWidth.Size = new System.Drawing.Size(148, 24);
-            this.deskQuoteWidth.TabIndex = 4;
-            // 
-            // deskQuoteDepth
-            // 
-            this.deskQuoteDepth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.deskQuoteDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskQuoteDepth.Location = new System.Drawing.Point(115, 76);
-            this.deskQuoteDepth.Name = "deskQuoteDepth";
-            this.deskQuoteDepth.Size = new System.Drawing.Size(148, 24);
-            this.deskQuoteDepth.TabIndex = 5;
             // 
             // deskQuoteMaterial
             // 
