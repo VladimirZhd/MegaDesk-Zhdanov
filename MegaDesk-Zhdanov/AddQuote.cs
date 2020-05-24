@@ -71,9 +71,13 @@ namespace MegaDesk_Zhdanov
                 DeliveryType = (Delivery)deliveryListDrop.SelectedValue
             };
 
+            
+
+
             try
             {
                 var price = deskQuote.GetQuotePrice();
+
                 deskQuote.QuotePrice = price;
 
                 List<DeskQuote> deskQuotes = new List<DeskQuote>();
@@ -106,8 +110,13 @@ namespace MegaDesk_Zhdanov
                 throw;
             }
 
+        }
 
+        private void SaveQuote(List<DeskQuote> quotes)
+        {
+            var quotesFile = @"quote.json";
 
+            
         }
 
         private void AddQuote_Load(object sender, EventArgs e)

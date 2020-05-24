@@ -28,85 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quoteDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deskWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deskDepth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surfaceMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.returnToMainBtn = new System.Windows.Forms.Button();
+            this.viewAllQuotesLabel = new System.Windows.Forms.Label();
+            this.viewAllQuotesGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // returnToMainBtn
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerName,
-            this.quoteDate,
-            this.deskWidth,
-            this.deskDepth,
-            this.surfaceMaterial,
-            this.drawers,
-            this.deliveryType,
-            this.totalPrice});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 357);
-            this.dataGridView1.TabIndex = 0;
+            this.returnToMainBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnToMainBtn.Location = new System.Drawing.Point(316, 378);
+            this.returnToMainBtn.Name = "returnToMainBtn";
+            this.returnToMainBtn.Size = new System.Drawing.Size(188, 42);
+            this.returnToMainBtn.TabIndex = 5;
+            this.returnToMainBtn.Text = "Main Menu";
+            this.returnToMainBtn.UseVisualStyleBackColor = true;
+            this.returnToMainBtn.Click += new System.EventHandler(this.returnToMainBtn_Click);
             // 
-            // customerName
+            // viewAllQuotesLabel
             // 
-            this.customerName.HeaderText = "Customer Name";
-            this.customerName.Name = "customerName";
-            this.customerName.ReadOnly = true;
+            this.viewAllQuotesLabel.AutoSize = true;
+            this.viewAllQuotesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewAllQuotesLabel.Location = new System.Drawing.Point(346, 20);
+            this.viewAllQuotesLabel.Name = "viewAllQuotesLabel";
+            this.viewAllQuotesLabel.Size = new System.Drawing.Size(124, 24);
+            this.viewAllQuotesLabel.TabIndex = 8;
+            this.viewAllQuotesLabel.Text = "Quote History";
             // 
-            // quoteDate
+            // viewAllQuotesGrid
             // 
-            this.quoteDate.HeaderText = "Quote Date";
-            this.quoteDate.Name = "quoteDate";
-            this.quoteDate.ReadOnly = true;
-            // 
-            // deskWidth
-            // 
-            this.deskWidth.HeaderText = "Width";
-            this.deskWidth.Name = "deskWidth";
-            this.deskWidth.ReadOnly = true;
-            this.deskWidth.Width = 80;
-            // 
-            // deskDepth
-            // 
-            this.deskDepth.HeaderText = "Depth";
-            this.deskDepth.Name = "deskDepth";
-            this.deskDepth.ReadOnly = true;
-            this.deskDepth.Width = 80;
-            // 
-            // surfaceMaterial
-            // 
-            this.surfaceMaterial.HeaderText = "Material";
-            this.surfaceMaterial.Name = "surfaceMaterial";
-            this.surfaceMaterial.ReadOnly = true;
-            // 
-            // drawers
-            // 
-            this.drawers.HeaderText = "Drawers";
-            this.drawers.Name = "drawers";
-            this.drawers.ReadOnly = true;
-            // 
-            // deliveryType
-            // 
-            this.deliveryType.HeaderText = "Delivery";
-            this.deliveryType.Name = "deliveryType";
-            this.deliveryType.ReadOnly = true;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "Price";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
+            this.viewAllQuotesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewAllQuotesGrid.Location = new System.Drawing.Point(12, 67);
+            this.viewAllQuotesGrid.Name = "viewAllQuotesGrid";
+            this.viewAllQuotesGrid.Size = new System.Drawing.Size(776, 291);
+            this.viewAllQuotesGrid.TabIndex = 6;
             // 
             // ViewAllQuotes
             // 
@@ -114,26 +69,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.returnToMainBtn);
+            this.Controls.Add(this.viewAllQuotesLabel);
+            this.Controls.Add(this.viewAllQuotesGrid);
             this.Name = "ViewAllQuotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewAllQuotes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewAllQuotes_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ViewAllQuotes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quoteDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deskWidth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deskDepth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surfaceMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drawers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
+        private System.Windows.Forms.Button returnToMainBtn;
+        private System.Windows.Forms.Label viewAllQuotesLabel;
+        private System.Windows.Forms.DataGridView viewAllQuotesGrid;
     }
 }
