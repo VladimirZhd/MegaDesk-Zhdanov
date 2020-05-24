@@ -206,6 +206,7 @@
             // materialListDrop
             // 
             this.materialListDrop.FormattingEnabled = true;
+            this.materialListDrop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.materialListDrop.Location = new System.Drawing.Point(542, 188);
             this.materialListDrop.Margin = new System.Windows.Forms.Padding(4);
             this.materialListDrop.Name = "materialListDrop";
@@ -289,7 +290,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddQuote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
-            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.deskSize.ResumeLayout(false);
             this.deskSize.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepth)).EndInit();

@@ -1,42 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk_Zhdanov
 {
     public partial class DisplayQuote : Form
     {
-        private Form _mainMenu;
-        private DeskQuote _quote;
-
-
-        public DisplayQuote()
+        private Form _mainMenu; 
+        public DisplayQuote(Form mainMenu, DeskQuote deskQuote)
         {
             InitializeComponent();
- 
-        }
-        public DisplayQuote(DeskQuote deskQuote) : this()
-        {
-            _quote = deskQuote;
-        }
+            _mainMenu = mainMenu;
 
+            deskQuoteCustomer.Text = deskQuote.CustomerName;
+            deskQuoteWidth.Text = deskQuote.Desk.Width.ToString();
+            deskQuoteDepth.Text = deskQuote.Desk.Depth.ToString();
+            deskQuoteDrawers.Text = deskQuote.Desk.NumberOfDrawers.ToString();
+            deskQuoteMaterial.Text = deskQuote.Desk.Material.ToString();
+            deskQuoteDelivery.Text = deskQuote.DeliveryType.ToString();
+            priceQuoteTxt.Text = deskQuote.QuotePrice.ToString();
+        }
 
         private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
         {
             _mainMenu.Show();
         }
 
+        private void deskQuoteDelivery_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            MainMenu viewMainMenu = (MainMenu)Tag;
-            viewMainMenu.Show();
-            Close();
+            Hide();
+            _mainMenu.Show();
         }
     }
 }
