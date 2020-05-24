@@ -9,6 +9,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace MegaDesk_Zhdanov
 {
@@ -20,7 +22,19 @@ namespace MegaDesk_Zhdanov
             InitializeComponent();
             _mainMenu = mainMenu;
             materialListDrop.DataSource = Enum.GetValues(typeof(DesktopMaterial));
-            deliveryListDrop.DataSource = Enum.GetValues(typeof(Delivery));
+            
+            deliveryListDrop.ValueMember = "Value";
+            deliveryListDrop.DisplayMember = "Description";
+            deliveryListDrop.DataSource = Enum.GetValues(typeof(Delivery))
+                .Cast<Enum>()
+                .Select(value => new
+                {
+                    (Attribute.GetCustomAttribute(value.GetType().GetField(value.ToString()), 
+                    typeof(DescriptionAttribute)) as DescriptionAttribute).Description,
+                    value
+                })
+                .OrderBy(item => item.value)
+                .ToList();    
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,6 +71,27 @@ namespace MegaDesk_Zhdanov
                 DeliveryType = (Delivery)deliveryListDrop.SelectedValue
             };
 
+            List<DeskQuote> deskQuotes = new List<DeskQuote>();
+
+            if (!File.Exists(@"quotes.json"))
+            {
+                deskQuotes.Add(deskQuote);
+                var list = JsonConvert.SerializeObject(deskQuotes);
+                File.WriteAllText(@"quotes.json", JsonConvert.SerializeObject(deskQuotes));
+            }
+            else
+            {
+                using (StreamReader reader = new StreamReader(@"quotes.json"))
+                {
+                    string allQuotes = reader.ReadToEnd();
+                    deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(allQuotes);
+                }
+                deskQuotes.Add(deskQuote);
+                var list = JsonConvert.SerializeObject(deskQuotes);
+                File.WriteAllText(@"quotes.json", list);
+            }
+
+
             try
             {
                 var price = deskQuote.GetQuotePrice();
@@ -84,8 +119,7 @@ namespace MegaDesk_Zhdanov
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
-        { 
-            
+        {
         }
     }
 }
