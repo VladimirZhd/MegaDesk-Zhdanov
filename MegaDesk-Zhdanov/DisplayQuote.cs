@@ -32,7 +32,7 @@ namespace MegaDesk_Zhdanov
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             _mainMenu.Show();
         }
     }
