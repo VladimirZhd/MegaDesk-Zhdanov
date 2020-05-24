@@ -18,11 +18,18 @@ namespace MegaDesk_Zhdanov
         {
             InitializeComponent();
             _mainMenu = mainMenu;
+
+            materialListDrop.DataSource = Enum.GetValues(typeof(DesktopMaterial));
         }
 
         private void SearchQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
             _mainMenu.Show();
+        }
+
+        private void materialListDrop_SelectedValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
