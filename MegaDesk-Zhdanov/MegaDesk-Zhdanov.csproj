@@ -130,4 +130,9 @@
     <Content Include="bin\Debug\rushOrderPrices.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties bin_4debug_4quotes_1json__JsonSchema="http://json.schemastore.org/azure-iot-edge-deployment-template-2.0" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
