@@ -28,37 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.customerNameLabel = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.deskQuoteDeliveryOption = new System.Windows.Forms.ComboBox();
             this.deliveryLabel = new System.Windows.Forms.Label();
-            this.deskQuoteSurfaceMaterial = new System.Windows.Forms.ComboBox();
             this.surfaceMaterialLabel = new System.Windows.Forms.Label();
-            this.deskQuoteDrawers = new System.Windows.Forms.NumericUpDown();
             this.numOfDrawers = new System.Windows.Forms.Label();
             this.deskSize = new System.Windows.Forms.GroupBox();
-            this.deskQuoteDepth = new System.Windows.Forms.NumericUpDown();
             this.deskDepth = new System.Windows.Forms.Label();
-            this.deskQuoteWidth = new System.Windows.Forms.NumericUpDown();
             this.deskWidth = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.priceQuoteTxt = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteDrawers)).BeginInit();
+            this.deskQuoteWidth = new System.Windows.Forms.Label();
+            this.deskQuoteDepth = new System.Windows.Forms.Label();
+            this.deskQuoteMaterial = new System.Windows.Forms.Label();
+            this.deskQuoteDelivery = new System.Windows.Forms.Label();
+            this.deskQuoteDrawers = new System.Windows.Forms.Label();
+            this.deskQuoteCustomer = new System.Windows.Forms.Label();
             this.deskSize.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteDepth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteWidth)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // customerNameLabel
-            // 
-            this.customerNameLabel.Location = new System.Drawing.Point(186, 104);
-            this.customerNameLabel.Name = "customerNameLabel";
-            this.customerNameLabel.ReadOnly = true;
-            this.customerNameLabel.Size = new System.Drawing.Size(423, 20);
-            this.customerNameLabel.TabIndex = 24;
             // 
             // cancelButton
             // 
@@ -71,15 +60,7 @@
             this.cancelButton.TabIndex = 23;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
-            // 
-            // deskQuoteDeliveryOption
-            // 
-            this.deskQuoteDeliveryOption.FormattingEnabled = true;
-            this.deskQuoteDeliveryOption.Location = new System.Drawing.Point(546, 236);
-            this.deskQuoteDeliveryOption.Margin = new System.Windows.Forms.Padding(4);
-            this.deskQuoteDeliveryOption.Name = "deskQuoteDeliveryOption";
-            this.deskQuoteDeliveryOption.Size = new System.Drawing.Size(195, 21);
-            this.deskQuoteDeliveryOption.TabIndex = 21;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // deliveryLabel
             // 
@@ -92,15 +73,6 @@
             this.deliveryLabel.TabIndex = 20;
             this.deliveryLabel.Text = "Delivery:";
             // 
-            // deskQuoteSurfaceMaterial
-            // 
-            this.deskQuoteSurfaceMaterial.FormattingEnabled = true;
-            this.deskQuoteSurfaceMaterial.Location = new System.Drawing.Point(546, 192);
-            this.deskQuoteSurfaceMaterial.Margin = new System.Windows.Forms.Padding(4);
-            this.deskQuoteSurfaceMaterial.Name = "deskQuoteSurfaceMaterial";
-            this.deskQuoteSurfaceMaterial.Size = new System.Drawing.Size(195, 21);
-            this.deskQuoteSurfaceMaterial.TabIndex = 19;
-            // 
             // surfaceMaterialLabel
             // 
             this.surfaceMaterialLabel.AutoSize = true;
@@ -111,30 +83,6 @@
             this.surfaceMaterialLabel.Size = new System.Drawing.Size(129, 20);
             this.surfaceMaterialLabel.TabIndex = 18;
             this.surfaceMaterialLabel.Text = "Surface Material:";
-            // 
-            // deskQuoteDrawers
-            // 
-            this.deskQuoteDrawers.Location = new System.Drawing.Point(547, 158);
-            this.deskQuoteDrawers.Margin = new System.Windows.Forms.Padding(4);
-            this.deskQuoteDrawers.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            this.deskQuoteDrawers.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.deskQuoteDrawers.Name = "deskQuoteDrawers";
-            this.deskQuoteDrawers.ReadOnly = true;
-            this.deskQuoteDrawers.Size = new System.Drawing.Size(63, 20);
-            this.deskQuoteDrawers.TabIndex = 17;
-            this.deskQuoteDrawers.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
             // 
             // numOfDrawers
             // 
@@ -150,8 +98,8 @@
             // deskSize
             // 
             this.deskSize.Controls.Add(this.deskQuoteDepth);
-            this.deskSize.Controls.Add(this.deskDepth);
             this.deskSize.Controls.Add(this.deskQuoteWidth);
+            this.deskSize.Controls.Add(this.deskDepth);
             this.deskSize.Controls.Add(this.deskWidth);
             this.deskSize.Location = new System.Drawing.Point(59, 160);
             this.deskSize.Margin = new System.Windows.Forms.Padding(4);
@@ -161,21 +109,6 @@
             this.deskSize.TabIndex = 15;
             this.deskSize.TabStop = false;
             this.deskSize.Text = "Desk Size";
-            // 
-            // deskQuoteDepth
-            // 
-            this.deskQuoteDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskQuoteDepth.Location = new System.Drawing.Point(115, 73);
-            this.deskQuoteDepth.Margin = new System.Windows.Forms.Padding(4);
-            this.deskQuoteDepth.Maximum = new decimal(new int[] {
-            48,
-            0,
-            0,
-            0});
-            this.deskQuoteDepth.Name = "deskQuoteDepth";
-            this.deskQuoteDepth.ReadOnly = true;
-            this.deskQuoteDepth.Size = new System.Drawing.Size(148, 23);
-            this.deskQuoteDepth.TabIndex = 3;
             // 
             // deskDepth
             // 
@@ -187,21 +120,6 @@
             this.deskDepth.Size = new System.Drawing.Size(57, 20);
             this.deskDepth.TabIndex = 2;
             this.deskDepth.Text = "Depth:";
-            // 
-            // deskQuoteWidth
-            // 
-            this.deskQuoteWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskQuoteWidth.Location = new System.Drawing.Point(115, 28);
-            this.deskQuoteWidth.Margin = new System.Windows.Forms.Padding(4);
-            this.deskQuoteWidth.Maximum = new decimal(new int[] {
-            96,
-            0,
-            0,
-            0});
-            this.deskQuoteWidth.Name = "deskQuoteWidth";
-            this.deskQuoteWidth.ReadOnly = true;
-            this.deskQuoteWidth.Size = new System.Drawing.Size(148, 23);
-            this.deskQuoteWidth.TabIndex = 1;
             // 
             // deskWidth
             // 
@@ -249,10 +167,66 @@
             // priceQuoteTxt
             // 
             this.priceQuoteTxt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.priceQuoteTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceQuoteTxt.Location = new System.Drawing.Point(86, 16);
             this.priceQuoteTxt.Name = "priceQuoteTxt";
             this.priceQuoteTxt.Size = new System.Drawing.Size(188, 23);
             this.priceQuoteTxt.TabIndex = 0;
+            // 
+            // deskQuoteWidth
+            // 
+            this.deskQuoteWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteWidth.Location = new System.Drawing.Point(115, 29);
+            this.deskQuoteWidth.Name = "deskQuoteWidth";
+            this.deskQuoteWidth.Size = new System.Drawing.Size(148, 24);
+            this.deskQuoteWidth.TabIndex = 4;
+            // 
+            // deskQuoteDepth
+            // 
+            this.deskQuoteDepth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteDepth.Location = new System.Drawing.Point(115, 76);
+            this.deskQuoteDepth.Name = "deskQuoteDepth";
+            this.deskQuoteDepth.Size = new System.Drawing.Size(148, 24);
+            this.deskQuoteDepth.TabIndex = 5;
+            // 
+            // deskQuoteMaterial
+            // 
+            this.deskQuoteMaterial.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteMaterial.Location = new System.Drawing.Point(547, 189);
+            this.deskQuoteMaterial.Name = "deskQuoteMaterial";
+            this.deskQuoteMaterial.Size = new System.Drawing.Size(194, 24);
+            this.deskQuoteMaterial.TabIndex = 26;
+            // 
+            // deskQuoteDelivery
+            // 
+            this.deskQuoteDelivery.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteDelivery.Location = new System.Drawing.Point(547, 236);
+            this.deskQuoteDelivery.Name = "deskQuoteDelivery";
+            this.deskQuoteDelivery.Size = new System.Drawing.Size(194, 24);
+            this.deskQuoteDelivery.TabIndex = 27;
+            this.deskQuoteDelivery.Click += new System.EventHandler(this.deskQuoteDelivery_Click);
+            // 
+            // deskQuoteDrawers
+            // 
+            this.deskQuoteDrawers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteDrawers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteDrawers.Location = new System.Drawing.Point(547, 157);
+            this.deskQuoteDrawers.Name = "deskQuoteDrawers";
+            this.deskQuoteDrawers.Size = new System.Drawing.Size(53, 24);
+            this.deskQuoteDrawers.TabIndex = 28;
+            // 
+            // deskQuoteCustomer
+            // 
+            this.deskQuoteCustomer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deskQuoteCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteCustomer.Location = new System.Drawing.Point(186, 107);
+            this.deskQuoteCustomer.Name = "deskQuoteCustomer";
+            this.deskQuoteCustomer.Size = new System.Drawing.Size(414, 24);
+            this.deskQuoteCustomer.TabIndex = 29;
             // 
             // DisplayQuote
             // 
@@ -260,14 +234,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.customerNameLabel);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.deskQuoteDeliveryOption);
-            this.Controls.Add(this.deliveryLabel);
-            this.Controls.Add(this.deskQuoteSurfaceMaterial);
-            this.Controls.Add(this.surfaceMaterialLabel);
+            this.Controls.Add(this.deskQuoteCustomer);
             this.Controls.Add(this.deskQuoteDrawers);
+            this.Controls.Add(this.deskQuoteDelivery);
+            this.Controls.Add(this.deskQuoteMaterial);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.deliveryLabel);
+            this.Controls.Add(this.surfaceMaterialLabel);
             this.Controls.Add(this.numOfDrawers);
             this.Controls.Add(this.deskSize);
             this.Controls.Add(this.label2);
@@ -276,11 +250,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayQuote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteDrawers)).EndInit();
             this.deskSize.ResumeLayout(false);
             this.deskSize.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteDepth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deskQuoteWidth)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,23 +259,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox customerNameLabel;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.ComboBox deskQuoteDeliveryOption;
         private System.Windows.Forms.Label deliveryLabel;
-        private System.Windows.Forms.ComboBox deskQuoteSurfaceMaterial;
         private System.Windows.Forms.Label surfaceMaterialLabel;
-        private System.Windows.Forms.NumericUpDown deskQuoteDrawers;
         private System.Windows.Forms.Label numOfDrawers;
         private System.Windows.Forms.GroupBox deskSize;
-        private System.Windows.Forms.NumericUpDown deskQuoteDepth;
         private System.Windows.Forms.Label deskDepth;
-        private System.Windows.Forms.NumericUpDown deskQuoteWidth;
         private System.Windows.Forms.Label deskWidth;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label priceQuoteTxt;
+        private System.Windows.Forms.Label deskQuoteDepth;
+        private System.Windows.Forms.Label deskQuoteWidth;
+        private System.Windows.Forms.Label deskQuoteMaterial;
+        private System.Windows.Forms.Label deskQuoteDelivery;
+        private System.Windows.Forms.Label deskQuoteDrawers;
+        private System.Windows.Forms.Label deskQuoteCustomer;
     }
 }

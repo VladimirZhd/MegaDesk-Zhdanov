@@ -39,7 +39,7 @@
             this.numericUpDownDrawers = new System.Windows.Forms.NumericUpDown();
             this.surfaceMaterialLabel = new System.Windows.Forms.Label();
             this.materialListDrop = new System.Windows.Forms.ComboBox();
-            this.deliveryListLabel = new System.Windows.Forms.ComboBox();
+            this.deliveryListDrop = new System.Windows.Forms.ComboBox();
             this.deliveryLabel = new System.Windows.Forms.Label();
             this.getQuoteButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -206,20 +206,21 @@
             // materialListDrop
             // 
             this.materialListDrop.FormattingEnabled = true;
+            this.materialListDrop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.materialListDrop.Location = new System.Drawing.Point(542, 188);
             this.materialListDrop.Margin = new System.Windows.Forms.Padding(4);
             this.materialListDrop.Name = "materialListDrop";
             this.materialListDrop.Size = new System.Drawing.Size(195, 24);
             this.materialListDrop.TabIndex = 7;
             // 
-            // deliveryListLabel
+            // deliveryListDrop
             // 
-            this.deliveryListLabel.FormattingEnabled = true;
-            this.deliveryListLabel.Location = new System.Drawing.Point(542, 232);
-            this.deliveryListLabel.Margin = new System.Windows.Forms.Padding(4);
-            this.deliveryListLabel.Name = "deliveryListLabel";
-            this.deliveryListLabel.Size = new System.Drawing.Size(195, 24);
-            this.deliveryListLabel.TabIndex = 9;
+            this.deliveryListDrop.FormattingEnabled = true;
+            this.deliveryListDrop.Location = new System.Drawing.Point(542, 232);
+            this.deliveryListDrop.Margin = new System.Windows.Forms.Padding(4);
+            this.deliveryListDrop.Name = "deliveryListDrop";
+            this.deliveryListDrop.Size = new System.Drawing.Size(195, 24);
+            this.deliveryListDrop.TabIndex = 9;
             // 
             // deliveryLabel
             // 
@@ -274,7 +275,7 @@
             this.Controls.Add(this.customerNameTextBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.getQuoteButton);
-            this.Controls.Add(this.deliveryListLabel);
+            this.Controls.Add(this.deliveryListDrop);
             this.Controls.Add(this.deliveryLabel);
             this.Controls.Add(this.materialListDrop);
             this.Controls.Add(this.surfaceMaterialLabel);
@@ -289,7 +290,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddQuote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
-            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.deskSize.ResumeLayout(false);
             this.deskSize.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepth)).EndInit();
@@ -313,7 +313,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDrawers;
         private System.Windows.Forms.Label surfaceMaterialLabel;
         private System.Windows.Forms.ComboBox materialListDrop;
-        private System.Windows.Forms.ComboBox deliveryListLabel;
+        private System.Windows.Forms.ComboBox deliveryListDrop;
         private System.Windows.Forms.Label deliveryLabel;
         private System.Windows.Forms.Button getQuoteButton;
         private System.Windows.Forms.Button cancelButton;

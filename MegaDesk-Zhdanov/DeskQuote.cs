@@ -24,7 +24,7 @@ namespace MegaDesk_Zhdanov
         Normal14Days
     }
 
-    class DeskQuote
+    public class DeskQuote
     {
 
         private int[,] _rushOrderPrices;
@@ -40,28 +40,104 @@ namespace MegaDesk_Zhdanov
 
 
         public Desk Desk { get; set; }
-
         public string CustomerName { get; set; }
-
         public DateTime QuoteDate { get; set; }
-
         public Delivery DeliveryType { get; set; }
-
         public decimal QuotePrice { get; set; }
-
         public decimal GetQuotePrice()
         {
             getRushOrderPrices();
 
-            decimal quotePrice = BASE_DESK_PRICE;
-
+            decimal totalPrice = BASE_DESK_PRICE;
             decimal surfaceArea = this.Desk.Depth * this.Desk.Width;
+            var surfaceMaterial = this.Desk.Material;
 
             decimal surfacePrice = 0.00M;
+            decimal deliveryCost = 0.00M;
 
+            decimal drawersPrice = this.Desk.NumberOfDrawers * DRAWER_COST;
             
 
-            return 0;
+            if (surfaceArea > 1000)
+            {
+                totalPrice += surfaceArea * SURFACE_AREA_COST; 
+            }
+
+            switch (surfaceMaterial)
+            {
+                case DesktopMaterial.Laminate:
+                    surfacePrice = LAMINATE_COST;
+                    break;
+                case DesktopMaterial.Oak:
+                    surfacePrice = OAK_COST;
+                    break;
+                case DesktopMaterial.Rosewood:
+                    surfacePrice = ROSEWOOD_COST;
+                    break;
+                case DesktopMaterial.Veneer:
+                    surfacePrice = VENEER_COST;
+                    break;
+                case DesktopMaterial.Pine:
+                    surfacePrice = PINE_COST;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (DeliveryType)
+            {
+                case Delivery.Rush3Day:
+                    if (surfaceArea < 1000)
+                    {
+                        deliveryCost = _rushOrderPrices[0, 0];
+                    }
+                    else if (surfaceArea > 1000 && surfaceArea < 2000)
+                    {
+                        deliveryCost = _rushOrderPrices[0, 1];
+                    }
+                    else
+                    {
+                        deliveryCost = _rushOrderPrices[0, 2];
+                    }
+                    break;
+                case Delivery.Rush5Day:
+                    if (surfaceArea < 1000)
+                    {
+                        deliveryCost = _rushOrderPrices[1, 0];
+                    }
+                    else if (surfaceArea > 1000 && surfaceArea < 2000)
+                    {
+                        deliveryCost = _rushOrderPrices[1, 1];
+                    }
+                    else
+                    {
+                        deliveryCost = _rushOrderPrices[1, 2];
+                    }
+                    break;
+                case Delivery.Rush7Day:
+                    if (surfaceArea < 1000)
+                    {
+                        deliveryCost = _rushOrderPrices[2, 0];
+                    }
+                    else if (surfaceArea > 1000 && surfaceArea < 2000)
+                    {
+                        deliveryCost = _rushOrderPrices[2, 1];
+                    }
+                    else
+                    {
+                        deliveryCost = _rushOrderPrices[2, 2];
+                    }
+                    break;
+                case Delivery.Normal14Days:
+
+                    break;
+                default:
+                    break;
+            }
+
+            totalPrice += surfacePrice + drawersPrice + deliveryCost;  
+
+            return totalPrice;
         }
 
         private void getRushOrderPrices()

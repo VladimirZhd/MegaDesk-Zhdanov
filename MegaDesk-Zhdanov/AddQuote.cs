@@ -19,6 +19,8 @@ namespace MegaDesk_Zhdanov
         {
             InitializeComponent();
             _mainMenu = mainMenu;
+            materialListDrop.DataSource = Enum.GetValues(typeof(DesktopMaterial));
+            deliveryListDrop.DataSource = Enum.GetValues(typeof(Delivery));
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -52,15 +54,17 @@ namespace MegaDesk_Zhdanov
                 Desk = desk,
                 CustomerName = customerNameTextBox.Text,
                 QuoteDate = DateTime.Now,
-                DeliveryType = (Delivery)deliveryListLabel.SelectedValue
+                DeliveryType = (Delivery)deliveryListDrop.SelectedValue
             };
 
             try
             {
                 var price = deskQuote.GetQuotePrice();
 
+
                 deskQuote.QuotePrice = price;
 
+                
 
                 DisplayQuote displayQuoteForm = new DisplayQuote(_mainMenu, deskQuote);
                 displayQuoteForm.Show();
@@ -82,14 +86,8 @@ namespace MegaDesk_Zhdanov
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
-        {
-            Array materialValues = Enum.GetValues(typeof(DesktopMaterial));
-            Array materialNames = Enum.GetNames(typeof(DesktopMaterial));
-
-            for (int i = 0; i < materialNames.Length; i++)
-            {
-
-            }
+        { 
+            
         }
     }
 }
